@@ -26,6 +26,7 @@ def is_longer(dna1, dna2):
     >>> is_longer('ATCG', 'ATCGGA')
     False
     """
+
     return get_length(dna1) > get_length(dna2)
 
 def count_nucleotides(dna, nucleotide):
@@ -39,19 +40,17 @@ def count_nucleotides(dna, nucleotide):
     0
     """
     count_nucleotide = 0
-
     for n in dna:
         if n == nucleotide:
             count_nucleotide = count_nucleotide + 1
 
     return count_nucleotide
             
-
 def contains_sequence(dna1, dna2):
     """ (str, str) -> bool
 
-    Return True if and only if DNA sequence dna2 occurs in the DNA sequence
-    dna1.
+    Return True if and only if DNA sequence dna2 occurs
+    in the DNA sequence dna1.
 
     >>> contains_sequence('ATCGGC', 'GG')
     True
@@ -62,8 +61,7 @@ def contains_sequence(dna1, dna2):
 
     return (dna2 in dna1)
 
-
-def is_valid_seqeunce(dna):
+def is_valid_sequence(dna):
     ''' (str) -> bool
 
     Return True if DNA sequence dna1 is valid, that is
@@ -82,13 +80,11 @@ def is_valid_seqeunce(dna):
         return False
     
     valid_nucleotides = 'ATCG'
-
     for n in dna:
         if n not in valid_nucleotides:
             return False
 
     return True
-
 
 def insert_sequence(dna1, dna2, i):
     ''' (str, str, int) -> str
@@ -109,11 +105,10 @@ def insert_sequence(dna1, dna2, i):
 
     '''
     
-    return dna1[:i] + dna2 + dna1[2:]
+    return dna1[:i] + dna2 + dna1[i:]
     
 
 def get_complement(nucleotide):
-
     ''' (str)-> str
 
     Return the nucleotide's complement
@@ -130,7 +125,6 @@ def get_complement(nucleotide):
     '''
 
     n_complement =''
-
     if nucleotide in 'A':
         n_complement = 'T'
     elif nucleotide in 'T':
@@ -142,9 +136,7 @@ def get_complement(nucleotide):
 
     return n_complement
 
-
 def get_complementary_sequence(dna):
-
     ''' (str) -> str
 
     Return the complementary sequence of the DNA dna
@@ -155,21 +147,9 @@ def get_complementary_sequence(dna):
     CG
     
     '''
-    dna_complement = ''
     
+    dna_complement = ''
     for n in dna:
         dna_complement = dna_complement + get_complement(n)
 
     return dna_complement
-
-
-
-
-
-
-
-
-
-
-
-        
